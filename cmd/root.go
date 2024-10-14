@@ -1,8 +1,6 @@
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +10,7 @@ var (
 		Short: "Wip is Simple Git Add -> Commit -> Push CLI",
 		Long:  "Wip is Simple Git Add -> Commit -> Push CLI",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Println("Hello world")
+			// Hello world
 		},
 	}
 )

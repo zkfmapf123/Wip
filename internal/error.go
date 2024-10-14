@@ -7,5 +7,16 @@ import (
 )
 
 func PanicError(err error) {
-	log.Fatalln(color.RedString(err.Error()))
+	if err != nil {
+		log.Fatalln(color.RedString(err.Error()))
+	}
+}
+
+func WrapMustFunc[T any](fn func() (T, error)) T {
+	v, err := fn()
+	if err != nil {
+		PanicError(err)
+	}
+
+	return v
 }
