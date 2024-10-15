@@ -42,7 +42,7 @@ var (
 				}
 			}
 
-			fmt.Printf("Branch : %s\tCommitMessage : %s", branch, commitMessage)
+			fmt.Printf("Branch : %s\nCommitMessage : %s", branch, commitMessage)
 		},
 	}
 )
