@@ -21,7 +21,5 @@ sudo vm wip /usr/local/bin
 wip c main
 ```
 
-[![recording](./public/recording.mp4)]
-
 
 
