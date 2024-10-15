@@ -1,6 +1,6 @@
 _build:
-	go build -o main main.go
-	chmod +x main
+	go build -o wip main.go
+	chmod +x wip
 
 lint:
 	clear

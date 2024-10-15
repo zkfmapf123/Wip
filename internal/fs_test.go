@@ -17,5 +17,6 @@ func Test_fs(t *testing.T) {
 
 func Test_IsCheckGitCredentials(t *testing.T) {
 	path, _ := GetGitPath()
+
 	assert.NotNil(t, path, true)
 }
