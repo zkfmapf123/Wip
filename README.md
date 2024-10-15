@@ -4,6 +4,7 @@
 
 - Simple Commit And Push CLI
 - Can be used in any path
+- 
 
 ## Recommand...
 
@@ -19,3 +20,7 @@ make _build
 sudo vm wip /usr/local/bin
 wip c main
 ```
+
+hello-world
+
+
