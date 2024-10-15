@@ -36,13 +36,13 @@ var (
 			gitPush := []string{"git", "push", "origin", branch}
 
 			for _, arr := range [][]string{gitAdd, gitCommit, gitPush} {
-				msg, err := internal.MustRunCommandInPath(path, arr[0], arr[1:]...)
+				_, err := internal.MustRunCommandInPath(path, arr[0], arr[1:]...)
 				if err != nil {
 					internal.PanicError(err)
 				}
-
-				fmt.Println(msg)
 			}
+
+			fmt.Printf("Branch : %s\tCommitMessage : %s", branch, commitMessage)
 		},
 	}
 )
