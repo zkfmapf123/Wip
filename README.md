@@ -4,7 +4,6 @@
 
 - Simple Commit And Push CLI
 - Can be used in any path
-- 
 
 ## Recommand...
 
