@@ -12,7 +12,7 @@ func MustRunCommandInPath(path string, command string, args ...string) (string, 
 		return "", fmt.Errorf("failed chdir %s", path)
 	}
 
-	fmt.Println(path, command, args)
+	// fmt.Println(path, command, args)
 
 	cmd := exec.Command(command, args...)
 	output, err := cmd.CombinedOutput()
