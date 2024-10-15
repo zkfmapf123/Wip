@@ -21,6 +21,5 @@ sudo vm wip /usr/local/bin
 wip c main
 ```
 
-hello-world
 
 
