@@ -3,6 +3,7 @@ package cmd
 import (
 	"errors"
 	"fmt"
+	"strings"
 	"zkfmapf123/wip/internal"
 
 	"github.com/google/uuid"
@@ -19,23 +20,49 @@ var (
 		Short: "Commit => [0] 브랜치이름 [1] Commit Message",
 		Long:  "Commit => [0] 브랜치이름 [1] Commit Message",
 		Run: func(cmd *cobra.Command, args []string) {
-			branch, commitMessage := args[0], args[1]
 
-			// check to branch
-			if branch == "" {
-				internal.PanicError(errors.New("not Exists Branch"))
+			branch, commitMessage, err := checkArgs(args)
+			if err != nil {
+				internal.PanicError(err)
 			}
 
-			// check to commit
-			if commitMessage == "" {
-				commitMessage = fmt.Sprintf("%s-%s", DEFAULT_COMMIT_MESSAGE, uuid.New().String())
+			path, err := internal.GetGitPath()
+			if err != nil {
+				internal.PanicError(err)
 			}
 
-			fmt.Println(branch, commitMessage)
+			gitAdd := []string{"git", "add", "."}
+			gitCommit := []string{"git", "commit", "-m", commitMessage}
+			gitPush := []string{"git", "push", "origin", branch}
 
+			for _, arr := range [][]string{gitAdd, gitCommit, gitPush} {
+				msg, err := internal.MustRunCommandInPath(path, arr[0], arr[1:]...)
+				if err != nil {
+					internal.PanicError(err)
+				}
+
+				fmt.Println(msg)
+			}
 		},
 	}
 )
+
+func checkArgs(args []string) (branch string, commitMessage string, err error) {
+
+	if len(args) == 0 {
+		return "", "", errors.New("not Exists branch and commitMessage")
+	}
+
+	if len(args) == 1 {
+		return args[0], fmt.Sprintf("%s-%s", DEFAULT_COMMIT_MESSAGE, getUUid()), nil
+	}
+
+	return args[0], fmt.Sprintf("%s-%s", args[1], getUUid()), nil
+}
+
+func getUUid() string {
+	return strings.Split(uuid.New().String(), "-")[0]
+}
 
 func init() {
 	rootCmd.AddCommand(wipCmd)

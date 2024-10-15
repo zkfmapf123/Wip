@@ -9,9 +9,6 @@ var (
 		Use:   "Wip",
 		Short: "Wip is Simple Git Add -> Commit -> Push CLI",
 		Long:  "Wip is Simple Git Add -> Commit -> Push CLI",
-		Run: func(cmd *cobra.Command, args []string) {
-			// Hello world
-		},
 	}
 )
 
