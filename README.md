@@ -11,6 +11,30 @@
 - no meaning commit message
 - When developing only in one branch 
 
+## Description
+
+
+### c
+
+- Commit
+
+```sh
+    ## branch           : required
+    ## commit-message   : optional
+    wip c [branch] [commit-message]
+```
+
+### cp
+
+- Commit And Push
+
+
+```sh
+    ## branch           : required
+    ## commit-message   : optional
+    wip cp [branch] [commit-message]
+```
+
 ## Execute
 
 ```sh
