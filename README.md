@@ -16,12 +16,8 @@
 ```sh
 
 make _build
-sudo vm wip /usr/local/bin
+sudo mv wip /usr/local/bin
 wip c main
 ```
 
 https://github.com/user-attachments/assets/6fa5947c-e42a-4bde-8b88-a77667c73b14
-
-
-
-
