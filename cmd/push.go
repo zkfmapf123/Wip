@@ -8,13 +8,13 @@ import (
 )
 
 var (
-	commitCmd = &cobra.Command{
-		Use:   "c",
-		Short: "Commit => [0] 브랜치이름 [1] Commit Message",
-		Long:  "Commit => [0] 브랜치이름 [1] Commit Message",
+	pushCmd = &cobra.Command{
+		Use:   "p",
+		Short: "push",
+		Long:  "push",
 		Run: func(cmd *cobra.Command, args []string) {
 
-			_, commitMessage, err := internal.CheckArgs(args)
+			branch, _, err := internal.CheckArgs(args)
 			if err != nil {
 				internal.PanicError(err)
 			}
@@ -25,18 +25,18 @@ var (
 			}
 
 			gCmd := internal.NewGitCmd()
-			for _, arr := range [][]string{gCmd.GetAdd(), gCmd.GetCommit(commitMessage)} {
+			for _, arr := range [][]string{gCmd.GetPush(branch)} {
 				_, err := internal.MustRunCommandInPath(path, arr[0], arr[1:]...)
 				if err != nil {
 					internal.PanicError(err)
 				}
 			}
 
-			fmt.Printf("CommitMessage : %s", commitMessage)
+			fmt.Printf("Branch : %s", branch)
 		},
 	}
 )
 
 func init() {
-	rootCmd.AddCommand(commitCmd)
+	rootCmd.AddCommand(pushCmd)
 }
