@@ -24,6 +24,15 @@
     wip c [branch] [commit-message]
 ```
 
+### p
+
+- Push
+
+```sh
+    ## branch           : required
+    wip p [branch]
+```
+
 ### cp
 
 - Commit And Push
