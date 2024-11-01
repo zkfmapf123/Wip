@@ -47,3 +47,6 @@ jobs:
           asset_path: ./wip
           asset_name: wip
           asset_content_type: application/x-msdownload
+
+      - name: Display Release URL
+        run: echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
