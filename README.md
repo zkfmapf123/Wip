@@ -54,3 +54,7 @@ wip c main
 ```
 
 https://github.com/user-attachments/assets/6fa5947c-e42a-4bde-8b88-a77667c73b14
+
+## ...
+
+- <a href="homebrew-tap">https://github.com/zkfmapf123/homebrew-tap</a>
