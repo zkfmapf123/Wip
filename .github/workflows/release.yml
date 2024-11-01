@@ -50,3 +50,8 @@ jobs:
 
       - name: Display Release URL
         run: echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
+      
+      - name: Calculate SHA-256 Checksum
+        run: |
+          SHA256=$(shasum -a 256 wip | awk '{ print $1 }')
+          echo "SHA-256: $SHA256"
