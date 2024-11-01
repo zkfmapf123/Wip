@@ -20,7 +20,7 @@ jobs:
 
       - name: Build Go project
         run: |
-          go build -o wip
+          GOOS=darwin GOARCH=amd64 go build -o wip
 
       - name: Extract Tag Name
         id: extract_tag
