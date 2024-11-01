@@ -46,4 +46,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./wip
           asset_name: wip
-          asset_content_type: application/octet-stream
+          asset_content_type: application/x-msdownload
