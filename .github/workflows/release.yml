@@ -49,7 +49,7 @@ jobs:
           asset_content_type: application/x-msdownload
 
       - name: Display Release URL
-        run: echo "Release URL: ${{ steps.create_release.outputs.html_url }}"
+        run: echo "Release URL: ${{ steps.create_release.outputs.upload_url }}"
       
       - name: Calculate SHA-256 Checksum
         run: |
